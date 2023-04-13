@@ -7,5 +7,17 @@ on:
     types:
       - completed
     env: 
-  app-name: "demoke"
-  rg-name: "RG1"
+      app-name: "demoke"
+      rg-name: "RG1"
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download a Build Artifact
+      uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: cibuild.yml
+        # Artifact name
+          name: publish
+          # Destination path
+          path: ${{ runner.temp }}/artifact
