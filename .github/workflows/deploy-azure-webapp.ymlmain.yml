@@ -1,0 +1,11 @@
+name: DeployToAzureWebApp
+ 
+# Controls when the workflow will run
+on:
+  workflow_run:
+    workflows: ["Build-and-Test"]
+    types:
+      - completed
+    env: 
+  app-name: "demoke"
+  rg-name: "RG1"
