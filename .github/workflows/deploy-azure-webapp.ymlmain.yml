@@ -21,3 +21,15 @@ jobs:
           name: publish
           # Destination path
           path: ${{ runner.temp }}/artifact
+    - name: Login via Azure CLI
+    uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Deploy web app
+        id: deploywebapp
+        uses: azure/webapps-deploy@v2
+          with:
+            app-name: ${{ env.app-name }}
+            package: ${{ runner.temp }}/artifact
+    - name: az cli logout
+      run: az logout
