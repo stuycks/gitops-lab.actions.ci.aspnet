@@ -9,9 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-# checkout all sources from git
-- name: Checkout Sources
-  uses: actions/checkout@v2
+    # checkout all sources from git
+    - name: Checkout Sources
+      uses: actions/checkout@v2
 # install dotnet SDK
 - name: Setup .NET
   uses: actions/setup-dotnet@v1
